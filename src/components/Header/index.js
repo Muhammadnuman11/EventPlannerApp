@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar"
-import TopNavbar from "./TopNavbar";
+// import TopNavbar from "./TopNavbar";
 
 function Index() {
     return (
         <>
-            <TopNavbar />
+            {/* <TopNavbar /> */}
             <Navbar />
         </>
     )

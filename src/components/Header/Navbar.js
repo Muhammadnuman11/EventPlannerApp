@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { AuthContext } from "../../pages/Context/AuthContext";
+import logo from '../../asset/Images/logo.png'
 
 export default function Navbar() {
 
@@ -22,35 +23,43 @@ export default function Navbar() {
 
     return (
         <header>
-            <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+            <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-2">
                 <div className="container">
-                    <Link to="/" className="navbar-brand fs-2">🚖 Parking</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <Link to="/" className="navbar-brand fs-2 logo"><img src={logo} alt="" /></Link>
+                    <button className="navbar-toggler border-0 shadow-none bg-info px-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-100">
                             <li className="nav-item">
-                                <Link to="/" className="nav-link active" aria-current="page"  >Home</Link>
+                                <Link to="/" className="nav-link text-info" aria-current="page">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/about" className="nav-link"  >About</Link>
+                                <Link to="/events" className="nav-link text-info">Events</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/contact" className="nav-link"  >Contact</Link>
+                                <Link to="/addevents" className="nav-link text-info">Add Events</Link>
                             </li>
-                        </ul>
-                        <div className="d-flex">
-
                             {!isAuthentication ?
                                 <>
-                                    <button className="btn btn-info btn-sm mx-2 text-light">
-                                        <Link to="auth/login" className="nav-link">Login</Link></button>
+                                    {/* <button className="btn btn-info btn-sm mx-2 text-light"> */}
+                                    <li className="nav-item">
+                                        <Link to="auth/login" className="nav-link text-info">Login</Link>
+                                    </li>
+                                    {/* </button> */}
+                                    {/* <button className="btn btn-info btn-sm mx-2 text-light"> */}
+                                    <li className="nav-item">
+                                        <Link to="auth/register" className="nav-link text-info">Register</Link>
+                                    </li>
+
+                                    {/* </button> */}
                                 </>
                                 : <>
-                                    <button className="btn btn-info btn-sm mx-2 text-light">
-                                        <Link to="/dashboard" className="nav-link">Dashboard</Link></button>
-                                    <button className="btn btn-danger btn-sm mx-2 text-light" onClick={handleLogout}>Logout</button>
+                                    {/* <button className="btn btn-info btn-sm mx-2 text-light"> */}
+                                    {/* </button> */}
+                                    <li className="nav-item">
+                                        <Link to="/" className="nav-link text-danger" onClick={handleLogout}>Logout</Link>
+                                    </li>
                                 </>
                             }
 
@@ -58,7 +67,8 @@ export default function Navbar() {
                                 <Link to="auth/register" className="nav-link">Register</Link></button>
                             <button className="btn btn-info btn-sm mx-2 text-light">
                                 <Link to="auth/forgotpassword" className="nav-link">Forgot Password</Link></button> */}
-                        </div>
+                            {/* </div> */}
+                        </ul>
                     </div>
                 </div>
             </nav>

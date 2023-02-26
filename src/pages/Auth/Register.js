@@ -42,9 +42,10 @@ export default function Register() {
     const addDocument = async (user) => {
         try {
             await setDoc(doc(firestore, "users", user.uid), {
-                firstName: "",
-                lastName: "",
+                // firstName: "",
+                // lastName: "",
                 uid: user.uid,
+                email: user.email,
             });
             console.log("user documents created at firestore")
             dispatch({type: "LOGIN"})
@@ -64,7 +65,7 @@ export default function Register() {
                         <div className="card p-2 p-md-3 p-lg-4">
                             <div className="row">
                                 <div className="col">
-                                    <h1 className='text-center text-white'>REGISTER</h1>
+                                    <h1 className='text-center'>REGISTER</h1>
                                 </div>
                             </div>
                             <form onSubmit={handleRegister}>
@@ -82,7 +83,7 @@ export default function Register() {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <button className='btn btn-danger text-light w-100 my-4' disabled={isProcessing}>
+                                        <button className='btn btn-info text-light w-100 my-4' disabled={isProcessing}>
                                             {
                                                 !isProcessing
                                                     ? "Register"

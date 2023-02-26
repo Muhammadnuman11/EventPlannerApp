@@ -26,7 +26,7 @@ export default function Login() {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             let user = userCredential.user
-            navigate("/dashboard")
+            navigate("/")
             console.log(user)
         })
         .catch((err) => {
@@ -42,10 +42,10 @@ export default function Login() {
             <div className="container">
                 <div className="row d-flex justify-content-center align-items-center">
                     <div className="col-12 col-md-8 col-lg-6">
-                        <div className="card p-2 p-md-3 p-lg-4">
+                        <div className="card p-2 p-md-3 p-lg-4 shadow">
                             <div className="row">
                                 <div className="col">
-                                    <h1 className='text-center text-white'>LOGIN</h1>
+                                    <h1 className='text-center'>LOGIN</h1>
                                 </div>
                             </div>
                             <form onSubmit={handleLogin}>
@@ -63,7 +63,7 @@ export default function Login() {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <button className='btn btn-danger text-light w-100 my-4' disabled={isProcessing}>
+                                        <button className='btn btn-info text-light w-100 my-4' disabled={isProcessing}>
                                             {
                                                 !isProcessing
                                                     ? "Login"

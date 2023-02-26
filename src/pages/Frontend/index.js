@@ -5,21 +5,23 @@ import { Route, Routes } from 'react-router-dom'
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import Home from './Home'
-import About from './About'
+// import About from './About'
+import NoPage from './NoPage'
+import Events from './Events'
+// import NoPage from './NoPage'
 
 export default function Index() {
     return (
         <>
-            {/* <Routes> */}
-                <Header />
-                <main>
-                    <Routes path='/*'>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                    </Routes>
-                </main>
-                <Footer />
-            {/* </Routes> */}
+            <Header />
+            <main>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="*" element={<NoPage />} />
+                    <Route path="/events" element={<Events/>} />
+                </Routes>
+            </main>
+            <Footer />
         </>
     )
 }

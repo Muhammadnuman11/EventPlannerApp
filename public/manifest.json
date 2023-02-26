@@ -1,6 +1,6 @@
 {
-  "short_name": "Parking&CanteenManagementSystem",
-  "name": "RFID Based Parking and Canteen Management System",
+  "short_name": "EventPlannerApplication",
+  "name": "Event Planner Application",
   "icons": [
     {
       "src": "favicon.ico",

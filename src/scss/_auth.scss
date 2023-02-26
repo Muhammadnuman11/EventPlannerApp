@@ -1,19 +1,22 @@
 .auth {
-    background: #056475;
-    background: -webkit-linear-gradient(to bottom, #056475, #71EF7A);
-    background: linear-gradient(to bottom, #056475, #71EF7A);
+    background: url("https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTM3fHxldmVudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 
+    h1{
+        // font-family: 'Days One', sans-serif;
+        font-family: 'Lobster', cursive;
+        // font-family: 'Roboto', sans-serif;
+        letter-spacing: 1.5px;
+    }
+
 
     .card {
-        background: #2d2b478d;
-        background: -webkit-linear-gradient(to bottom, #2d2b478d, #470f2cd7);
-        background: linear-gradient(to bottom, #2d2b478d, #470f2cd7);
+        background: #aa7a23;
         border: none;
-        border-radius: 30px;
+        height: 60vh;
 
 
         .emailStyle {

@@ -5,7 +5,8 @@ import { AuthContext } from './Context/AuthContext'
 // Pages
 import Frontend from "../pages/Frontend"
 import Auth from "../pages/Auth"
-import Dashboard from "../pages/Dashboard"
+import AddEvents from './Frontend/AddEvents'
+// import Dashboard from "../pages/Dashboard"
 import PrivateRoute from '../components/PrivateRoute'
 
 export default function Index() {
@@ -16,8 +17,8 @@ export default function Index() {
     <BrowserRouter>
       <Routes>
         <Route path='/*' element={<Frontend />} />
-        <Route path='auth/*' element={!isAuthenticated ? <Auth /> : <Navigate to="/dashboard" />} />
-        <Route path='dashboard/*' element={<PrivateRoute Component={Dashboard} />} />
+        <Route path='auth/*' element={!isAuthenticated ? <Auth /> : <Navigate to="/addevents" />} />
+        <Route path='/addevents' element={<PrivateRoute Component={AddEvents} />} />
       </Routes>
     </BrowserRouter>
   )

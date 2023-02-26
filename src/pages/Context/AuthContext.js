@@ -9,7 +9,7 @@ const initialState = { isAuthentication: false }
 const reducer = ((state, action) => {
     switch (action.type) {
         case "LOGIN":
-            return { isAuthentication: true }
+            return { isAuthentication: true, user: action.payload.users }
         case "LOGOUT":
             return { isAuthentication: false }
         default:
@@ -23,22 +23,22 @@ export default function AuthContextProvider(props) {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
+        onAuthStateChanged(auth, (users) => {
+            if (users) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/firebase.User
-              console.log(user)
-              console.log("User is signed in")
-              dispatch({type: "LOGIN"})
+            //   console.log(users)
+            //   console.log("User is signed in")
+              dispatch({type: "LOGIN", payload: { users }})
             } else {
-              console.log("User is signed out")
+                // console.log("User is signed out")
             }
-          });
+        });
     }, [])
     
 
     return (
-        <AuthContext.Provider value={{ authentication : state, dispatch }}>
+        <AuthContext.Provider value={{ authentication : state, users: state, dispatch }}>
             {props.children}
         </AuthContext.Provider>
     )
